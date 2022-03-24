@@ -1,6 +1,11 @@
 from threading import Thread
 from servivo import *
 
+Nombre_Renos = ["Rodolfo","Blitzen","Donder","Cupid","Comet","Vixen","Prancer","Dancer","Dasher"]
+Nombre_Duendes = ["Snowball","Bushy","Pepper"]
+Despierta = 5
+
+Sem_Santa = threading.Semaphore(0)
 
 class Main(Thread):
 
@@ -18,7 +23,11 @@ def main():
     hiloSanta = Main(santa)
     hiloSanta.run()
     print("Que me ves?", renos[0].is_on_vacation, len(duendes), sep=", ")
-
+    print("---> Santa dice: Estoy cansado, dormiré un rato")
+    for i in range(Despierta):
+        Sem_Santa.acquire() #Santa reposa
+        print("----> Santa dice: Estoy despierto!")
+    
 
 if __name__ == '__main__':
     main()
