@@ -1,4 +1,6 @@
-from threading import Thread
+import threading
+import time
+import random
 from servivo import *
 
 Nombre_Renos = ["Rodolfo","Blitzen","Donder","Cupid","Comet","Vixen","Prancer","Dancer","Dasher"]
