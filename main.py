@@ -23,10 +23,10 @@ turno = 1 # Variable que contabiliza los turnos de preguntas
 
 # Constantes
 Renos = 9 # Numero total de renos
-Elfos = 9 # Numero total de elfos
+Elfos = 3 # Numero total de elfos
 AyudaDu = 3 # Numero de elfos ayudados
 Despierta = 7 # Numero de veces que Santa despierta
-Ayuda = 3 # Numero de veces que los elfos piden ayuda
+Ayuda = 1 # Numero de veces que los elfos piden ayuda
 
 Nombre_Renos = ["Rodolfo","Blitzen","Donder","Cupid","Comet","Vixen","Prancer","Dancer","Dasher"]
 Nombre_Duendes = ["Snowball","Bushy","Pepper","Gother","Arwen","Galadriel","Miriel","Elentari","Galadriel"]
@@ -82,7 +82,7 @@ def renos():
 		print(" Llega el reno {}".format(Nombre_Renos[num]))
 	Sem_Renos.acquire()
 	print(" {} listo y atado".format(Nombre_Renos[num]))
-	print("  {} es el ultimo reno".format(Nombre_Renos[num]))
+	print("  {} duerme".format(Nombre_Renos[num]))
 
 # Definición del proceso de los duendes: Como se puede apreciar los elfos van llegando y pedirán ayuda dos veces cada uno.
 # Una vez llegando 3 elfos, los siguientes que llegaran seran bloqueados, hasta que Santa los liberé
