@@ -17,9 +17,9 @@ window.title("Problema de Santa Claus en Python 🎄🎅🏽🎁")
 window.geometry("1200x900")
 
 # Imagenes
-santa_img = ImageTk.PhotoImage(Image.open('img/santa.jpg').resize((400, 400)))
-trineo_img = ImageTk.PhotoImage(Image.open('img/trineo.jpg').resize((400, 400)))
-santa_duendes_img = ImageTk.PhotoImage(Image.open('img/santa_duendes.jpg').resize((400, 400)))
+santa_img = ImageTk.PhotoImage(Image.open('img/santa.jpeg').resize((400, 400)))
+trineo_img = ImageTk.PhotoImage(Image.open('img/trineo.jpeg').resize((400, 400)))
+santa_duendes_img = ImageTk.PhotoImage(Image.open('img/santa_duendes.jpeg').resize((400, 400)))
 
 renos_img = ImageTk.PhotoImage(Image.open('img/back_ground.jpg').resize((400, 400)))
 duendes_img = ImageTk.PhotoImage(Image.open('img/back_ground.jpg').resize((400, 400)))
@@ -57,7 +57,7 @@ nombres_renos = ["RODOLFO","BLITZEN","DONDER","CUPID","COMET","VIXEN","PRANCER",
 santa_semaf = threading.Semaphore(0) # Santa semaforo
 renos_semaf = threading.Semaphore(0) # Reno semaforo
 duendes_semaf = threading.Semaphore(0) # Elfos ayudados
-Semaf_principal = threading.Semaphore(0) # Semaforo principal
+semaf_principal = threading.Semaphore(0) # Semaforo principal
 
 # Se dejan pasar 3 procesos (Duendes)
 duendes_help_semaf = threading.Semaphore(3) # Elfos piden ayuda (3) semaforo
@@ -109,7 +109,7 @@ def duende_fnc():
     duendes +=1
     time.sleep(random.randint(1,4))
 
-    duendes_img = ImageTk.PhotoImage(Image.open(f'img/duende{duendes}.jpg').resize((400, 400)))
+    duendes_img = ImageTk.PhotoImage(Image.open(f'img/duende{duendes}.jpeg').resize((400, 400)))
     duendes_canv = tk.Canvas(window, width=400, height=400, bg="black")
     duendes_canv.create_image(5,5, anchor=tk.NW, image=duendes_img) 
     duendes_canv.grid(row= 0, column= 0)
@@ -136,7 +136,6 @@ def obtener_ayuda():
     time.sleep(random.randint(1,3))
     duendes_msg.set('Grupo de duendes ayudados')
 
-
 # ------------------------- Renos ------------------------------------------------
 # Definicion del proceso de los renos: los renos van llegando y se van desbloqueando
 # Cuando llegan los 9 renos despiertan a Santa
@@ -160,7 +159,7 @@ def reno_fnc():
     renos_canv.grid(row= 0, column= 2)
 
     if renos == 7:
-        renos_msg.set('Renos: Ya estamos los 7 renos, hablenle a Santa!!')
+        renos_msg.set('Renos: Ya estamos los 7 renos, chiflenle a Santa!!')
         santa_semaf.release()
     else:
         print('\n')
@@ -174,11 +173,11 @@ def vacaciones():
 
 # Funcion para enganchar el trineo
 def enganchar_trineo():
-    renos_msg.set('Renos enganchando trineo...')
+    renos_msg.set('Los renos estan siendo enganchandos al trineo...')
     time.sleep(random.randint(1,3))
     renos_msg.set('Renos listos!')
     time.sleep(random.randint(1,2))
-    renos_msg.set('¡Repartiendo juguetes...!')
+    renos_msg.set('¡Repartiendo los juguetes...!')
 # ----------------------------------------------------------------------------
 # Funcion para ayudar a los duendes
 def ayudar_duendes():
@@ -192,10 +191,10 @@ def preparar_trineo():
     global trineo_img
     print('Santa esta preparando el trineo...')
     time.sleep(random.randint(1,3))
-    print('El trineo está listo!')
+    print('!El trineo está listo!')
     time.sleep(1)
     santa_gui.create_image(10,10, anchor=tk.NW, image=trineo_img) 
-    print('Amonooooossss mis renooss!')
+    print('!La noche nos aguarda, jojojo!')
 # ---------------------------------------------------------------------------
 
 # Función principal que crea los hilos de duendes, renos y santa
