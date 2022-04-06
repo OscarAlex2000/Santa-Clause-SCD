@@ -13,7 +13,7 @@ customtkinter.set_appearance_mode("System")
 customtkinter.set_default_color_theme("blue") 
 
 window = customtkinter.CTk()
-window.title("Problema de Santa Claus en Python 🎄🎅🏽🎁")
+window.title("Problema de Santa Claus en Python")
 window.geometry("1200x900")
 
 # Imagenes
@@ -158,8 +158,8 @@ def reno_fnc():
     renos_canv.create_image(5,5, anchor=tk.NW, image=renos_img) 
     renos_canv.grid(row= 0, column= 2)
 
-    if renos == 7:
-        renos_msg.set('Renos: Ya estamos los 7 renos, chiflenle a Santa!!')
+    if renos == 9:
+        renos_msg.set('Renos: Ya estamos los 9 renos, chiflenle a Santa!!')
         santa_semaf.release()
     else:
         print('\n')
